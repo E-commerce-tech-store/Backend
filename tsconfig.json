@@ -12,7 +12,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@env": ["src/config/env"]
+      "@env": ["src/config/env"],
+      "@interceptor": ["src/interceptor"]
     },
     "incremental": true,
     "skipLibCheck": true,

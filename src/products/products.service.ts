@@ -20,10 +20,10 @@ export class ProductsService {
   async findAll() {
     return await this.prisma.tbl_products.findMany({
       where: {
-        status: true, // Only active products
+        status: true,
       },
       include: {
-        tbl_categories: true, // Include category information
+        tbl_categories: true,
       },
     });
   }
@@ -50,7 +50,7 @@ export class ProductsService {
   async remove(id: UUID) {
     return await this.prisma.tbl_products.update({
       where: { id },
-      data: { status: false }, // Soft delete
+      data: { status: false },
     });
   }
 }
