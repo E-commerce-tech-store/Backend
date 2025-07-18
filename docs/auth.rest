@@ -1,0 +1,35 @@
+### Register a new user
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Admin Doe",
+  "email": "admin@example.com",
+  "password": "password123"
+}
+
+### Login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "password123"
+}
+
+### Get user profile (requires authentication)
+GET http://localhost:8080/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkNDQxNzFiLTQ5NzQtNDAzZi04ZjQyLTNhYTkwODhlMDc4MCIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUyODUyNzcyLCJleHAiOjE3NTI5MzkxNzJ9.otXEauvRu5-qwHcT0UKfSoQMKLmq-sOC7RiTN_chu_8
+
+### Update user profile (requires authentication)
+PUT http://localhost:8080/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkNDQxNzFiLTQ5NzQtNDAzZi04ZjQyLTNhYTkwODhlMDc4MCIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUyODUyNzcyLCJleHAiOjE3NTI5MzkxNzJ9.otXEauvRu5-qwHcT0UKfSoQMKLmq-sOC7RiTN_chu_8
+Content-Type: application/json
+
+{
+  "name": "Updated Name"
+}
+
+### Access Admin-only route (requires ADMIN role)
+GET http://localhost:8080/api/auth/admin-only
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQyYjliMTQ1LTEwNzAtNDQ1NC1hMGUwLWFjYjRmZGRiMmI2NSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTI4NTMxMjgsImV4cCI6MTc1MjkzOTUyOH0.JNScMdAbPz39X77I5zjl5rydDvjgL5F3CcuRXI63fW0
