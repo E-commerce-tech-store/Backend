@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { PrismaService } from '../prisma.service';
-import { UUID } from 'node:crypto';
 
 @Injectable()
 export class ProductsService {
@@ -28,7 +27,7 @@ export class ProductsService {
     });
   }
 
-  async findOne(id: UUID) {
+  async findOne(id: string) {
     return await this.prisma.tbl_products.findUnique({
       where: { id },
       include: {
@@ -37,7 +36,7 @@ export class ProductsService {
     });
   }
 
-  async update(id: UUID, updateProductDto: UpdateProductDto) {
+  async update(id: string, updateProductDto: UpdateProductDto) {
     return await this.prisma.tbl_products.update({
       where: { id },
       data: updateProductDto,
@@ -47,7 +46,7 @@ export class ProductsService {
     });
   }
 
-  async remove(id: UUID) {
+  async remove(id: string) {
     return await this.prisma.tbl_products.update({
       where: { id },
       data: { status: false },
