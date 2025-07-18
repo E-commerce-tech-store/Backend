@@ -16,7 +16,8 @@ export class CategoriesService {
       return await this.prisma.tbl_categories.create({
         data: createCategoryDto,
       });
-    } catch {
+    } catch (error) {
+      console.error('Error creating category:', error);
       throw new InternalServerErrorException('Failed to create category');
     }
   }
