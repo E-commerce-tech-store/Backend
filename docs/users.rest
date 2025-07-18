@@ -1,0 +1,61 @@
+@host=http://localhost:8080/api
+@admin_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4ZTcyODQ5LTI3NDEtNDBhZi1hYTc3LTQzZmVmNWJmMGIxMiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyODcxNzA4LCJleHAiOjE3NTI5NTgxMDh9.U5ySJ4DW-F0kpNsiJ-AQE2R6Rdc4KpDa_Aidb5ov42c
+
+### Create User
+POST {{host}}/users
+Content-Type: application/json
+Authorization: Bearer {{admin_token}}
+
+{
+  "email": "user@example.com",
+  "name": "John Doe",
+  "password": "password123",
+  "role": "USER",
+  "status": true
+}
+
+###
+
+### Get All Users with Order Statistics
+GET {{host}}/users
+Authorization: Bearer {{admin_token}}
+
+###
+
+### Get User Statistics
+GET {{host}}/users/stats
+Authorization: Bearer {{admin_token}}
+
+###
+
+### Get User by ID
+GET {{host}}/users/550e8400-e29b-41d4-a716-446655440000
+Authorization: Bearer {{admin_token}}
+
+###
+
+### Get User Order History
+GET {{host}}/users/550e8400-e29b-41d4-a716-446655440000/orders
+Authorization: Bearer {{admin_token}}
+
+###
+
+### Update User
+PATCH {{host}}/users/550e8400-e29b-41d4-a716-446655440000
+Content-Type: application/json
+Authorization: Bearer {{admin_token}}
+
+{
+  "name": "Updated Name",
+  "email": "updated@example.com",
+  "role": "ADMIN",
+  "status": true
+}
+
+###
+
+### Soft Delete User (Set status to false)
+DELETE {{host}}/users/550e8400-e29b-41d4-a716-446655440000
+Authorization: Bearer {{admin_token}}
+
+###

@@ -7,15 +7,17 @@ GET http://localhost:8080/api/products/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e7
 ### Create a new product (Admin only)
 POST http://localhost:8080/api/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjIyLTIyMjItMjIyMi0yMjIyLTIyMjIyMjIyMjIyMiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifQ._2J_59PuHAJZO-I4BVPkCOjEQHWcuRCWMJUl2Apy9G8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4ZTcyODQ5LTI3NDEtNDBhZi1hYTc3LTQzZmVmNWJmMGIxMiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyODU5ODc5LCJleHAiOjE3NTI5NDYyNzl9.eL8QMBJ6N1pdgHUgTHjGSfC7I8vkiOV3F9hHof69AIE
 
 {
-  "name": "Gaming Laptop XYZ",
-  "description": "High performance gaming laptop with RTX 4080",
-  "price": 1299.99,
-  "stock": 15,
-  "categoryId": "a193cc7b-7cfd-4e9d-be60-cc8c9a6333e5"
+  "name": "Macbook Pro 14",
+  "description": "A powerful laptop for professionals",
+  "price": 5000000,
+  "stock": 10,
+  "category_id": "cba4b3db-1aba-4135-9fb7-17d40b43f58c",
+  "image_url": "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111941_sp776-mbp15touch-space.jpeg"
 }
+
 
 ### Update a product (Admin only)
 PATCH http://localhost:8080/api/products/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e7
@@ -24,7 +26,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjIyL
 
 {
   "name": "Gaming Laptop XYZ Pro",
-  "price": 1399.99,
+  "price": 1399,
   "stock": 10
 }
 

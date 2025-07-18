@@ -60,7 +60,7 @@ export class AuthService {
 
     // Find user
     const user = await this.prisma.tbl_user.findUnique({
-      where: { email },
+      where: { email, status: true },
     });
 
     if (!user) {
