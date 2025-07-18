@@ -1,34 +1,33 @@
-### List all categories (Public)
-GET http://localhost:8080/api/categories
+### Get all products (Public)
+GET http://localhost:8080/api/products
 
-### Get categories with product count (Public)
-GET http://localhost:8080/api/categories/with-count
+### Get a specific product (Public)
+GET http://localhost:8080/api/products/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e7
 
-### Get a category by ID (Public)
-GET http://localhost:8080/api/categories/9d282020-3a63-47c9-971e-fee8bd761cd2
-
-### Create a new category (Admin only)
-POST http://localhost:8080/api/categories
+### Create a new product (Admin only)
+POST http://localhost:8080/api/products
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjIyLTIyMjItMjIyMi0yMjIyLTIyMjIyMjIyMjIyMiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifQ._2J_59PuHAJZO-I4BVPkCOjEQHWcuRCWMJUl2Apy9G8
 
 {
-  "name": "Phones",
-  "description": "Mobile phones and accessories"
+  "name": "Gaming Laptop XYZ",
+  "description": "High performance gaming laptop with RTX 4080",
+  "price": 1299.99,
+  "stock": 15,
+  "categoryId": "a193cc7b-7cfd-4e9d-be60-cc8c9a6333e5"
 }
 
-### Update a category (Admin only)
-PUT http://localhost:8080/api/categories/9d282020-3a63-47c9-971e-fee8bd761cd2
+### Update a product (Admin only)
+PATCH http://localhost:8080/api/products/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e7
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjIyLTIyMjItMjIyMi0yMjIyLTIyMjIyMjIyMjIyMiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifQ._2J_59PuHAJZO-I4BVPkCOjEQHWcuRCWMJUl2Apy9G8
 
 {
-  "name": "Smartphones",
-  "description": "Modern smartphones and related accessories"
+  "name": "Gaming Laptop XYZ Pro",
+  "price": 1399.99,
+  "stock": 10
 }
 
-### Delete a category (Admin only)
-DELETE http://localhost:8080/api/categories/9d282020-3a63-47c9-971e-fee8bd761cd2
+### Delete a product (Admin only)
+DELETE http://localhost:8080/api/products/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e7
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjIyLTIyMjItMjIyMi0yMjIyLTIyMjIyMjIyMjIyMiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifQ._2J_59PuHAJZO-I4BVPkCOjEQHWcuRCWMJUl2Apy9G8
-
-

@@ -1,0 +1,38 @@
+### Create a new order
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ3YTcxZjQ5LTEyMzUtNDNkYi1hYWNlLTM4MDgyNjJlOTM3ZCIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUyODU0MTM1LCJleHAiOjE3NTI5NDA1MzV9.uR666zARofXy2o4zmAOCKmz1wLRRbk3Wwa8DTJppYkk
+
+{
+  "items": [
+    {
+      "id_product": "202a9419-4c78-4b2e-bd5d-001a021f99f3", 
+      "quantity": 1
+    }
+  ]
+}
+
+### Get all orders (for regular users: shows only their orders)
+GET http://localhost:8080/api/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4LTEyMzQtMTIzNC0xMjM0LTEyMzQ1Njc4OTAxMiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIn0.cthm5aZZlJcp7yMB6ttcHQJwRdmT5oCnV4NdH1gL51s
+
+### Get all orders (for admin: shows all orders)
+GET http://localhost:8080/api/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjIyLTIyMjItMjIyMi0yMjIyLTIyMjIyMjIyMjIyMiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifQ._2J_59PuHAJZO-I4BVPkCOjEQHWcuRCWMJUl2Apy9G8
+
+### Get a specific order
+GET http://localhost:8080/api/orders/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4LTEyMzQtMTIzNC0xMjM0LTEyMzQ1Njc4OTAxMiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIn0.cthm5aZZlJcp7yMB6ttcHQJwRdmT5oCnV4NdH1gL51s
+
+### Update order status (Admin only)
+PATCH http://localhost:8080/api/orders/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjIyLTIyMjItMjIyMi0yMjIyLTIyMjIyMjIyMjIyMiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifQ._2J_59PuHAJZO-I4BVPkCOjEQHWcuRCWMJUl2Apy9G8
+
+{
+  "status": "FINISHED"
+}
+
+### Cancel an order
+DELETE http://localhost:8080/api/orders/c193cc7b-7cfd-4e9d-be60-cc8c9a6333e9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4LTEyMzQtMTIzNC0xMjM0LTEyMzQ1Njc4OTAxMiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIn0.cthm5aZZlJcp7yMB6ttcHQJwRdmT5oCnV4NdH1gL51s
