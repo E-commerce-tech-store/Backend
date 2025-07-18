@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+    "name": "Sample Product",
+    "description": "A sample product description.",
+    "category_id": "c193cc7b-7cfd-4e9d-be60-cc8c9a6333e7",
+    "stock": 200,
+    "price": 57000,
+    "image_url": "https://example.com/sample-product.jpg"
+}

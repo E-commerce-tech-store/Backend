@@ -30,6 +30,8 @@ export class GlobalExceptionInterceptor implements NestInterceptor {
       errorMessage = error;
     }
 
+    console.error('Unhandled error:', errorMessage);
+
     return throwError(
       () =>
         new HttpException(

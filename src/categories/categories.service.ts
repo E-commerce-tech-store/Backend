@@ -1,89 +1,116 @@
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
-
-export interface CreateCategoryDto {
-  name: string;
-}
-
-export interface UpdateCategoryDto {
-  name?: string;
-  status?: boolean;
-}
+import { CreateCategoryDto } from './dto/create-category.dto';
+import { UpdateCategoryDto } from './dto/update-category.dto';
 
 @Injectable()
 export class CategoriesService {
   constructor(private prisma: PrismaService) {}
 
-  // Create a new category
   async create(createCategoryDto: CreateCategoryDto) {
-    return await this.prisma.tbl_categories.create({
-      data: createCategoryDto,
-    });
+    try {
+      return await this.prisma.tbl_categories.create({
+        data: createCategoryDto,
+      });
+    } catch {
+      throw new InternalServerErrorException('Failed to create category');
+    }
   }
 
-  // Get all active categories
   async findAll() {
-    return await this.prisma.tbl_categories.findMany({
-      where: {
-        status: true,
-      },
-      include: {
-        tbl_products: {
-          where: {
-            status: true,
+    try {
+      return await this.prisma.tbl_categories.findMany({
+        where: {
+          status: true,
+        },
+        include: {
+          tbl_products: {
+            where: {
+              status: true,
+            },
           },
         },
-      },
-    });
+      });
+    } catch {
+      throw new InternalServerErrorException('Failed to fetch categories');
+    }
   }
 
-  // Get category by ID
   async findOne(id: string) {
-    return await this.prisma.tbl_categories.findUnique({
-      where: { id },
-      include: {
-        tbl_products: {
-          where: {
-            status: true,
+    try {
+      const category = await this.prisma.tbl_categories.findUnique({
+        where: { id, status: true },
+        include: {
+          tbl_products: {
+            where: {
+              status: true,
+            },
           },
         },
-      },
-    });
+      });
+      if (!category) {
+        throw new NotFoundException('Category not found');
+      }
+      return category;
+    } catch (error) {
+      if (error instanceof NotFoundException) throw error;
+      throw new InternalServerErrorException('Failed to fetch category');
+    }
   }
 
-  // Update category
   async update(id: string, updateCategoryDto: UpdateCategoryDto) {
-    return await this.prisma.tbl_categories.update({
-      where: { id },
-      data: updateCategoryDto,
-    });
+    try {
+      await this.findOne(id);
+
+      return await this.prisma.tbl_categories.update({
+        where: { id },
+        data: updateCategoryDto,
+      });
+    } catch (error) {
+      if (error instanceof NotFoundException) throw error;
+      throw new InternalServerErrorException('Failed to update category');
+    }
   }
 
-  // Soft delete category
   async remove(id: string) {
-    return await this.prisma.tbl_categories.update({
-      where: { id },
-      data: { status: false },
-    });
+    try {
+      await this.findOne(id);
+      return await this.prisma.tbl_categories.update({
+        where: { id },
+        data: { status: false },
+      });
+    } catch (error) {
+      if (error instanceof NotFoundException) throw error;
+      throw new InternalServerErrorException('Failed to delete category');
+    }
   }
 
-  // Get category with product count
   async getCategoriesWithProductCount() {
-    return await this.prisma.tbl_categories.findMany({
-      where: {
-        status: true,
-      },
-      include: {
-        _count: {
-          select: {
-            tbl_products: {
-              where: {
-                status: true,
+    try {
+      return await this.prisma.tbl_categories.findMany({
+        where: {
+          status: true,
+        },
+        include: {
+          _count: {
+            select: {
+              tbl_products: {
+                where: {
+                  status: true,
+                },
               },
             },
           },
         },
-      },
-    });
+      });
+    } catch {
+      throw new InternalServerErrorException(
+        'Failed to fetch categories with product count',
+      );
+    }
   }
 }

@@ -1,0 +1,27 @@
+### Create a new category
+POST http://localhost:8080/api/categories
+Content-Type: application/json
+
+{
+  "name": "Phones"
+}
+
+### List all categories
+GET http://localhost:8080/api/categories
+
+
+### Get a category by ID
+GET http://localhost:8080/api/categories/9d282020-3a63-47c9-971e-fee8bd761cd2
+
+### Update a category
+PUT http://localhost:8080/api/categories/9d282020-3a63-47c9-971e-fee8bd761cd2
+Content-Type: application/json
+
+{
+  "name": "Smartphones"
+}
+
+### Delete a category
+DELETE http://localhost:8080/api/categories/9d282020-3a63-47c9-971e-fee8bd761cd2
+
+
