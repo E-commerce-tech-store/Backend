@@ -8,7 +8,6 @@ import { RolesGuard } from './guards/roles.guard';
 import { Roles } from './decorators/roles.decorator';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Public } from './decorators/public.decorator';
-import { role } from '@prisma/client';
 
 @Controller('auth')
 export class AuthController {
@@ -42,7 +41,7 @@ export class AuthController {
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(role.ADMIN)
+  @Roles('ADMIN')
   @Get('admin-only')
   adminOnly() {
     return {

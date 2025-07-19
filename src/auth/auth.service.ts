@@ -10,7 +10,6 @@ import { LoginDto } from './dto/login.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { role } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -38,7 +37,7 @@ export class AuthService {
         email,
         name,
         password: hashedPassword,
-        role: role.USER,
+        role: 'USER',
       },
       select: {
         id: true,

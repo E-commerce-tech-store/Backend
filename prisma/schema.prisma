@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -67,6 +66,7 @@ model tbl_user {
 enum order_status {
   FINISHED
   PENDING
+  CANCELLED
 }
 
 enum role {

@@ -3,7 +3,7 @@ export class Order {
   id_user: string;
   total: number;
   created_at: Date;
-  status: 'PENDING' | 'FINISHED';
+  status: 'PENDING' | 'FINISHED' | 'CANCELLED';
   details: OrderDetail[];
 }
 
