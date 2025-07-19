@@ -6,6 +6,7 @@ import {
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { PrismaService } from '../prisma.service';
+import { order_status } from '@prisma/client';
 
 @Injectable()
 export class OrdersService {
@@ -252,8 +253,9 @@ export class OrdersService {
         }
 
         // Update order status
-        return await tx.tbl_orders.delete({
+        return await tx.tbl_orders.update({
           where: { id },
+          data: { status: order_status.CANCELLED },
         });
       });
     } catch (error) {
