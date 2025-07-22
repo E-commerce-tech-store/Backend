@@ -1,7 +1,7 @@
 ### Create a new order
 POST http://localhost:8080/api/orders
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ3YTcxZjQ5LTEyMzUtNDNkYi1hYWNlLTM4MDgyNjJlOTM3ZCIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUyODU0MTM1LCJleHAiOjE3NTI5NDA1MzV9.uR666zARofXy2o4zmAOCKmz1wLRRbk3Wwa8DTJppYkk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwNmZiZGQwLTQ0ZTAtNDJmOC05NDBhLWMxMWQwOTQxN2I1MiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyODg3OTQyLCJleHAiOjE3NTI5NzQzNDJ9.H15nDMWu9neBR8mr1dzJf_2_bDCzsx6xa87xHQrFK_A
 
 {
   "items": [
@@ -14,7 +14,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ3YTcxZjQ5L
 
 ### Get all orders (for regular users: shows only their orders)
 GET http://localhost:8080/api/orders
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4LTEyMzQtMTIzNC0xMjM0LTEyMzQ1Njc4OTAxMiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIn0.cthm5aZZlJcp7yMB6ttcHQJwRdmT5oCnV4NdH1gL51s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwNmZiZGQwLTQ0ZTAtNDJmOC05NDBhLWMxMWQwOTQxN2I1MiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyODg3OTQyLCJleHAiOjE3NTI5NzQzNDJ9.H15nDMWu9neBR8mr1dzJf_2_bDCzsx6xa87xHQrFK_A
 
 ### Get all orders (for admin: shows all orders)
 GET http://localhost:8080/api/orders
