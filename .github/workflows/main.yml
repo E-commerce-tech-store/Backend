@@ -41,4 +41,3 @@ jobs:
           cluster: ${{ secrets.ECS_CLUSTER_NAME }}
           service: ${{ secrets.ECS_SERVICE_NAME }}
           task-definition: ${{ secrets.ECS_TASK_DEFINITION }}
-          image: ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
